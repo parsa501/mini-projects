@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.banner{
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    gap: 20px;
+    margin: 50px auto;
+    
+}
+.banner div{
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s;
+    border-radius: 25px;
+}
+.banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all .5s;
+
+}
+.banner span{
+    position: absolute;
+    transform: rotateZ(-90deg);
+    left: 50%;
+    bottom: 5%;
+    transition: all .5s;
+
+    text-wrap: nowrap;
+    font-size: 24px;
+    color: white;
+    font-weight: bolder;
+    transform-origin: left;
+    letter-spacing: 10px;
+}
+.active{
+    flex: 7 !important;
+}
+.active span{
+    transform: none;
+    left: 5% ;
+}
