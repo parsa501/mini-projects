@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 12 -->
+    <section class="section-twelve">
+      <p id="pOne">hello && welcom</p>
+      <button id="buttonOne">click</button>
+    </section>
+    <!-- 12 -->
+    <!-- 13  -->
+    <section class="section-thirteen"></section>
+    <!-- 13 -->
+    <!-- 14 -->
+    <section class="calculator">
+      <div>
+        <div>
+          <input type="text" id="display" class="display" value="0" readonly />
+        </div>
+        <div>
+          <div class="clear" onclick="clearDisplay()">AC</div>
+          <div class="plus-minus" onclick="toggleSign()">+/-</div>
+          <div class="percent" onclick="calculatePercent()">%</div>
+          <div class="operator" onclick="appendOperator('/')">./.</div>
+        </div>
+        <div>
+          <div class="num" onclick="appendNamber('7')">7</div>
+          <div class="num" onclick="appendNamber('8')">8</div>
+          <div class="num" onclick="appendNamber('9')">9</div>
+          <div class="operator" onclick="appendOperator('*')">*</div>
+        </div>
+        <div>
+          <div class="num" onclick="appendNamber('4')">4</div>
+          <div class="num" onclick="appendNamber('5')">5</div>
+          <div class="num" onclick="appendNamber('6')">6</div>
+          <div class="operator" onclick="appendOperator('-')">-</div>
+        </div>
+        <div>
+          <div class="num" onclick="appendNamber('1')">1</div>
+          <div class="num" onclick="appendNamber('2')">2</div>
+          <div class="num" onclick="appendNamber('3')">3</div>
+          <div class="operator" onclick="appendOperator('+')">+</div>
+        </div>
+        <div>
+          <div class="num" onclick="appendNamber('00')">00</div>
+          <div class="num" onclick="appendNamber('0')">0</div>
+          <div class="decimal" onclick="appendDecimal('.')">.</div>
+          <div class="equal" onclick="calculate()">=</div>
+        </div>
+      </div>
+    </section>
+    <!-- 14 -->
+    <!-- 15 -->
+    <section>
+      <div class="container">
+        <h1 class="tod">To-Do List</h1>
+        <div>
+          <input type="text" id="taskInput" placeholder="Add a task" />
+          <button id="addTaskBtn">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+      </div>
+    </section>
+    <!-- 15 -->
+    <!-- 16 -->
+    <section>
+      <div class="clock">
+        <div class="hand hour" id="hourHand"></div>
+        <div class="hand minuts" id="minutsHand"></div>
+        <div class="hand second" id="secondHand"></div>
+        <div class="center"></div>
+      </div>
+    </section>
+    <!-- 16 -->
+    <!-- 17 -->
+    <section>
+      <div class="converter">
+        <h1 class="Unit">Unit converter</h1>
+        <select id="unitType">
+          <option value="temperature">Temperature</option>
+          <option value="length">Length</option>
+          <option value="weight">Weight</option>
+        </select>
+        <input
+          type="number"
+          id="inputValue"
+          placeholder="Please enter avalue"
+        />
+        <select id="fromUnit"></select>
+        <select id="toUnit"></select>
+        <button onclick="convert()" class="buttonToDo">Conversion</button>
+        <div class="result" id="result"></div>
+      </div>
+    </section>
+    <!-- 17 -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
