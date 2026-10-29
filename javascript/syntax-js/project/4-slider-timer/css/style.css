@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.banner{
+    width: 90%;
+    height: 70vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 50px auto;
+    
+}
+.banner img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+   
+
+}
+.banner i{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    padding: 10px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.142);
+}
+.active{
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.prev{
+    left: 5%;
+}
+.next{
+    right: 5%;
+}
