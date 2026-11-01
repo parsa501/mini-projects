@@ -15,6 +15,10 @@ const commentSchema = new mongoose.Schema({
         type: String,
         required: [true, "Comment content is required"],
         minLength: [5, "Comment content must be at least 5 characters long"]
+    },
+    isPublish: {
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true });
 
