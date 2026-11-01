@@ -13,12 +13,15 @@ import isAdmin from "./Middleware/IsAdmin.js";
 import { catchError,HandleERROR } from "vanta-api";
 import authRouter from "./Routes/Auth.js";
 import exportValidation from "./Middleware/ExportValidation.js";
+import { swaggerUi, swaggerSpec } from "./swagger.js";
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use(express.static("Public"));
 app.use("/api/auth", authRouter);
 app.use(exportValidation);
