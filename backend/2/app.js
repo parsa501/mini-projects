@@ -4,12 +4,14 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 import path from "path";
 import morgan from "morgan";
+import categoryRouter from "./Routes/Category.js";
 import commentRouter from "./Routes/Comment.js";
 import postRouter from "./Routes/Post.js";
 import uploadRouter from "./Routes/Upload.js";
 import userRouter from "./Routes/User.js";
 import isAdmin from "./Middleware/IsAdmin.js";
-import categoryRouter from "./Routes/Category.js";
+import { catchError, HandleERROR } from "vanta-api";
+import authRouter from "./Routes/Auth.js";
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 const app = express();
@@ -20,12 +22,11 @@ app.use(express.static("Public"));
 app.use("/api/categories", categoryRouter);
 app.use("/api/comments", commentRouter);
 app.use("/api/posts", postRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/uploads", isAdmin, uploadRouter);
 app.use("/api/users", userRouter);
 app.use((req, res, next) => {
-  return res.status(404).json({
-    error: "Not Found",
-    success: false,
-  });
+  return next(new HandleERROR("Not Found", 404));
 });
+app.use(catchError);
 export default app;
