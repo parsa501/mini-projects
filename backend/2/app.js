@@ -3,8 +3,7 @@ import cors from "cors";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import path from "path";
-import swaggerUi from "swagger-ui-express";
-import swaggerJsDoc from "swagger-jsdoc";
+
 
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -24,3 +23,4 @@ app.use((req, res, next) => {
     success: false,
   });
 });
+export default app;
