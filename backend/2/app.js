@@ -10,8 +10,9 @@ import postRouter from "./Routes/Post.js";
 import uploadRouter from "./Routes/Upload.js";
 import userRouter from "./Routes/User.js";
 import isAdmin from "./Middleware/IsAdmin.js";
+import { catchError,HandleERROR } from "vanta-api";
 import authRouter from "./Routes/Auth.js";
-import { catchError, HandleERROR } from "vanta-api";
+import exportValidation from "./Middleware/ExportValidation.js";
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 const app = express();
@@ -19,14 +20,16 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.static("Public"));
+app.use("/api/auth", authRouter);
+app.use(exportValidation);
 app.use("/api/categories", categoryRouter);
 app.use("/api/comments", commentRouter);
 app.use("/api/posts", postRouter);
-app.use("/api/auth", authRouter);
+
 app.use("/api/uploads", isAdmin, uploadRouter);
 app.use("/api/users", userRouter);
 app.use((req, res, next) => {
-  return next(new HandleERROR("Not Found", 404));
+  return next(new HandleERROR('Not Found', 404));
 });
-app.use(catchError);
-export default app;
+app.use(catchError)
+export default app
