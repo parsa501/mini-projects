@@ -1,0 +1,20 @@
+{
+  "name": "start-node",
+  "version": "1.0.0",
+  "description": "node exampel project",
+  "license": "ISC",
+  "author": "parsa",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "nodemon": "^3.1.14",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
