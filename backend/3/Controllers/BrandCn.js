@@ -1,6 +1,8 @@
 import Brand from "../Models/BrandMd.js";
 import ApiFeatures, { catchAsync, HandleERROR } from "vanta-api";
 import Product from "../Models/ProductMd.js";
+import fs from 'fs'
+import {__dirname} from './../app.js'
 export const create = catchAsync(async (req, res, next) => {
   const brand = await Brand.create(req.body);
   res.status(201).json({
@@ -50,10 +52,12 @@ export const remove = catchAsync(async (req, res, next) => {
   if(products.length>0){({ brandId: id });
     return next(new HandleERROR("Cannot delete brand with associated products", 400));
   }
-  await Brand.findByIdAndDelete(id);
-  return res.status(204).json({
+  const brand=await Brand.findByIdAndDelete(id);
+  if(brand.image){
+    fs.unlinkSync(`${__dirname}/Public/Uploads/${brand.image}`);
+  }
+  return res.status(200).json({
     status: "success",
-    data: null,
     message: "Brand deleted successfully",
   });
 });
