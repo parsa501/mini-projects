@@ -13,6 +13,9 @@ import brandRouter from "./Routes/Brand.js";
 import sliderRouter from "./Routes/Slider.js";
 import variantRouter from "./Routes/Variant.js";
 import isAdmin from "./Middlewares/IsAdmin.js";
+import productRouter from "./Routes/Product.js";
+import addressRouter from "./Routes/Address.js";
+import isLogin from "./Middlewares/IsLogin.js";
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 const app = express();
@@ -28,6 +31,8 @@ app.use("/api/categories", categoryRouter);
 app.use("/api/brands", brandRouter);
 app.use("/api/sliders", sliderRouter);
 app.use("/api/variants", isAdmin, variantRouter);
+app.use("/api/products", productRouter);
+app.use("/api/addresses", isLogin, addressRouter);
 
 app.use((req, res, next) => {
   return next(new HandleERROR("Not Found", 404));
