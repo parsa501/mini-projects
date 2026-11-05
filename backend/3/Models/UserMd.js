@@ -29,6 +29,15 @@ const userSchema = new mongoose.Schema(
       type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Address" }],
       default: [],
     },
+    ratedProducts: {
+      type:[
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product"
+        }
+      ],
+      default: []
+    },
     role: {
       type: String,
       enum: ["user", "admin", "superAdmin"],
