@@ -3,6 +3,7 @@ import User from "../Models/UserMd.js";
 import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 import { sendAuthCode, verifyCode } from "../Utils/SmsHandler.js";
+import Cart from "../Models/CartMd.js";
 
 export const auth = catchAsync(async (req, res, next) => {
   const { phoneNumber = null } = req.body;
@@ -63,6 +64,9 @@ export const loginWithOtp = catchAsync(async (req, res, next) => {
   let newUser;
   if (!user) {
     newUser = await User.create({ phoneNumber });
+    if(newUser){
+      Cart.create({ userId: newUser._id });
+    }
   } else {
     newUser = user;
   }
