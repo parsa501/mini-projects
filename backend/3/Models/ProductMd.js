@@ -58,7 +58,7 @@ const productSchema = new mongoose.Schema(
       default: 0,
       min: 0,
     },
-    ProductVariantIds: {
+    productVariantIds: {
       type: [
         {
           type: mongoose.Schema.Types.ObjectId,
