@@ -41,7 +41,7 @@ export const update = catchAsync(async (req, res, next) => {
   });
  
  return res.status(200).json({
-    status: "success",
+    success: true,
     data: brand,
     message: "Brand updated successfully",
   });
@@ -57,7 +57,7 @@ export const remove = catchAsync(async (req, res, next) => {
     fs.unlinkSync(`${__dirname}/Public/Uploads/${brand.image}`);
   }
   return res.status(200).json({
-    status: "success",
+    success: true,
     message: "Brand deleted successfully",
   });
 });
