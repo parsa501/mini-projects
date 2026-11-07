@@ -20,7 +20,7 @@ const productVariantSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Price after discount is required"],
     },
-    ProductId: {
+    productId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Product",
     },
