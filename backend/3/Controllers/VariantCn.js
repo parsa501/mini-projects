@@ -4,7 +4,7 @@ import Variant from "../Models/VariantMd.js";
 export const create = catchAsync(async (req, res, next) => {
   const variant = await Variant.create(req.body);
   res.status(201).json({
-    status: "success",
+    success: true,
     data: variant,
     message: "Variant created successfully",
   });
@@ -37,7 +37,7 @@ export const update = catchAsync(async (req, res, next) => {
   });
 
   return res.status(200).json({
-    status: "success",
+    success: true,
     data: variant,
     message: "Variant updated successfully",
   });
@@ -52,7 +52,7 @@ export const remove = catchAsync(async (req, res, next) => {
   }
   await Variant.findByIdAndDelete(id);
   return res.status(200).json({
-    status: "success",
+    success: true,
     message: "Variant deleted successfully",
   });
 });
