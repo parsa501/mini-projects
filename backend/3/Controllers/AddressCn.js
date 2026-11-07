@@ -49,7 +49,7 @@ export const update = catchAsync(async (req, res, next) => {
   });
 
   return res.status(200).json({
-    status: "success",
+    success: true,
     data: address,
     message: "Address updated successfully",
   });
@@ -65,7 +65,7 @@ export const remove = catchAsync(async (req, res, next) => {
     $pull: { addressIds: id },
   });
   return res.status(200).json({
-    status: "success",
+    success: true,
     message: "Address deleted successfully",
   });
 });
