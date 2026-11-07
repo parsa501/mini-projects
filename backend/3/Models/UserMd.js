@@ -3,6 +3,7 @@ const userSchema = new mongoose.Schema(
   {
     fullname: {
       type: String,
+      default: ''
     },
     password: {
       type: String,
