@@ -5,13 +5,13 @@ import User from "../Models/UserMd.js";
 export const create = catchAsync(async (req, res, next) => {
   const product = await Product.create(req.body);
   res.status(201).json({
-    status: "success",
+    success: true,
     data: product,
     message: "Product created successfully",
   });
 });
 export const getAll = catchAsync(async (req, res, next) => {
-  const features = new ApiFeatures(Category, req.query, req.role)
+  const features = new ApiFeatures(Product, req.query, req.role)
     .addManualFilters(req.role == "admin" ? {} : { isPublished: true })
     .filter()
     .sort()
