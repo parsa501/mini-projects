@@ -16,6 +16,11 @@ import isAdmin from "./Middlewares/IsAdmin.js";
 import productRouter from "./Routes/Product.js";
 import addressRouter from "./Routes/Address.js";
 import isLogin from "./Middlewares/IsLogin.js";
+import productVariantRouter from "./Routes/ProductVariant.js";
+import commentRouter from "./Routes/Comment.js";
+import cartRouter from "./Routes/Cart.js";
+import discountRouter from "./Routes/DiscountCode.js";
+import orderRouter from "./Routes/Order.js";
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 const app = express();
@@ -32,6 +37,11 @@ app.use("/api/brands", brandRouter);
 app.use("/api/sliders", sliderRouter);
 app.use("/api/variants", isAdmin, variantRouter);
 app.use("/api/products", productRouter);
+app.use("/api/product-variants", productVariantRouter);
+app.use("/api/comments", commentRouter);
+app.use("/api/discounts", discountRouter);
+app.use("/api/orders", orderRouter);
+app.use("/api/carts", isLogin, cartRouter);
 app.use("/api/addresses", isLogin, addressRouter);
 
 app.use((req, res, next) => {
