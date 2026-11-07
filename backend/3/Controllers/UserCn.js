@@ -47,7 +47,7 @@ export const update = catchAsync(async (req, res, next) => {
   }
   const newUser = await user.save();
   return res.status(200).json({
-    status: "success",
+    success: true,
     data: {
       user: newUser,
     },
