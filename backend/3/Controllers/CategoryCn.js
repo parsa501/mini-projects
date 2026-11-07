@@ -6,7 +6,7 @@ import Category from "../Models/CategoryMd.js";
 export const create = catchAsync(async (req, res, next) => {
   const category = await Category.create(req.body);
   res.status(201).json({
-    status: "success",
+    success: true,
     data: category,
     message: "Category created successfully",
   });
@@ -45,7 +45,7 @@ export const update = catchAsync(async (req, res, next) => {
   });
 
   return res.status(200).json({
-    status: "success",
+    success: true,
     data: category,
     message: "Category updated successfully",
   });
@@ -64,7 +64,7 @@ export const remove = catchAsync(async (req, res, next) => {
     fs.unlinkSync(`${__dirname}/Public/Uploads/${category.image}`);
   }
   return res.status(200).json({
-    status: "success",
+    success: true,
     message: "Category deleted successfully",
   });
 });
