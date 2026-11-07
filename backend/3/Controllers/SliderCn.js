@@ -5,7 +5,7 @@ import Slider from "../Models/SliderMd.js";
 export const create = catchAsync(async (req, res, next) => {
   const slider = await Slider.create(req.body);
   res.status(201).json({
-    status: "success",
+    success: true,
     data: slider,
     message: "Slider created successfully",
   });
@@ -27,7 +27,7 @@ export const remove = catchAsync(async (req, res, next) => {
     fs.unlinkSync(`${__dirname}/Public/Uploads/${slider.image}`);
   }
   return res.status(200).json({
-    status: "success",
+    success: true,
     message: "Slider deleted successfully",
   });
 });
